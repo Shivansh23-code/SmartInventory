@@ -12,4 +12,7 @@ public class OrderRequestDto {
     private List<Long> cartItemIds;
     private Double totalPrice;
     private String paymentStatus;
+    private double totalAmount;
+    private String paymentMethod;
+
 }

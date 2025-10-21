@@ -27,6 +27,6 @@ public class Product {
     @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
     private InventoryItem inventoryItem;
 
-
+    private Integer availableQuantity;
 
 }
