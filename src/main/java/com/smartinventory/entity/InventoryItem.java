@@ -17,6 +17,4 @@ public class InventoryItem {
     @OneToOne
     @JoinColumn(name = "product_id")
     private Product product;
-
-
 }

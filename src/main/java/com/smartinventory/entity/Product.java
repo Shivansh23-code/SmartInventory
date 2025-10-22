@@ -1,6 +1,7 @@
 package com.smartinventory.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,6 +16,7 @@ public class Product {
 
     @Column(nullable = false)
     private String name;
+
     private String description;
 
     @Column(nullable = false)
@@ -22,9 +24,11 @@ public class Product {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
+    @JsonIgnore
     private Category category;
 
-    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private InventoryItem inventoryItem;
 
     private Integer availableQuantity;
