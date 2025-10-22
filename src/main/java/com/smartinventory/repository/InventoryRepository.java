@@ -9,5 +9,6 @@ import java.util.Optional;
 @Repository
 public interface InventoryRepository extends JpaRepository<InventoryItem, Long> {
     Optional<InventoryItem> findByProductId(Long productId);
+    void deleteByProductId(Long productId);
 
 }
